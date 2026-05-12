@@ -142,11 +142,11 @@ Results are logged to `ablation_v2_results.csv` and curves saved to `ablation_v2
 
 **Full model with PointRend (30 epochs)**
 
-![Full model curves](assets/full_30ep_curves.png)
+![Full model curves](full_30ep_curves.png)
 
 **Baseline without PointRend (15 epochs)**
 
-![No PointRend curves](assets/no_pointrend_curves.png)
+![No PointRend curves](no_pointrend_curves.png)
 
 ---
 
