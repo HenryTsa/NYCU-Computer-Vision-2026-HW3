@@ -129,7 +129,7 @@ Results are logged to `ablation_v2_results.csv` and curves saved to `ablation_v2
 
 ## Performance Snapshot
 
-> Insert a screenshot of the leaderboard here.
+![leader_board](screen_shot.png)
 
 **Validation AP50**: 0.5410 (ResNet-50 baseline, 30 epochs)
 
