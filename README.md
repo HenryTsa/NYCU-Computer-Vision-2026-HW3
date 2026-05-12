@@ -60,13 +60,13 @@ matplotlib
 
 ```bash
 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True \
-python train.py --mode train \
+python ablation.py --mode train \
+    --exp_name full_30ep \
     --train_dir ./train \
-    --output_dir ./output \
-    --gpu_ids 0 \
+    --output_dir ./ablation_output \
+    --gpu_ids 1 \
     --epochs 30 \
-    --batch_size 1 \
-    --val_every 1
+    --batch_size 1
 ```
 
 Key arguments:
@@ -85,12 +85,13 @@ Key arguments:
 
 ```bash
 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True \
-python train.py --mode predict \
+python ablation.py --mode predict \
+    --exp_name full_30ep \
     --test_dir ./test \
     --id_json ./test_image_name_to_ids.json \
-    --output_dir ./output \
-    --gpu_ids 0 \
-    --checkpoint ./output/best_model_ap50.pth
+    --output_dir ./ablation_output \
+    --gpu_ids 1 \
+    --checkpoint ./ablation_output/full_30ep/best_model.pth
 ```
 
 The submission file will be saved to `./output/test-results.json` in COCO format.
@@ -110,17 +111,15 @@ Key arguments:
 To reproduce ablation experiments:
 
 ```bash
-# Run all 8 ablation experiments (GPU 1, 30 epochs each)
-bash run_ablation_v2.sh 1 30
-
-# Or run a single experiment
 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True \
-python ablation_v2.py \
-    --exp_name my_experiment \
+python ablation.py --mode train \
+    --exp_name no_pointrend \
     --train_dir ./train \
-    --output_dir ./ablation_v2 \
-    --gpu_ids 0 \
-    --epochs 30
+    --output_dir ./ablation_output \
+    --gpu_ids 1 \
+    --epochs 30 \
+    --batch_size 1 \
+    --no_pointrend
 ```
 
 Results are logged to `ablation_v2_results.csv` and curves saved to `ablation_v2/{exp_name}/curves.png`.
