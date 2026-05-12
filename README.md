@@ -153,10 +153,7 @@ Results are logged to `ablation_v2_results.csv` and curves saved to `ablation_v2
 
 ```
 hw3/
-├── train.py                  # Main training & inference script
-├── ablation_v2.py            # Ablation study script
-├── run_ablation_v2.sh        # Shell script to run all ablations
-├── requirements.txt
+├── ablation.py            # Ablation study script
 ├── train/                    # Training images (not included)
 │   └── [image_name]/
 │       ├── image.tif
